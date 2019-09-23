@@ -1,0 +1,734 @@
+{
+	"info": {
+		"_postman_id": "49761d9e-4050-417d-bd92-927df8243308",
+		"name": "Paypa Plane Public API /v1.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/v1.0",
+			"item": [
+				{
+					"name": "/v1.0",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/event-subscription",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/event-subscription",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"event-subscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/event-subscription",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e0e44913-236a-421e-8abe-05aa97ef906d",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"eventId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"eventClass\": \"PaymentRequest\",\n  \"eventAction\": \"*\",\n  \"webhookUrl\": \"https://api.example.com\"\n}"
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/event-subscription",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"event-subscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/event-subscription/{{id}}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/event-subscription/{{eventId}}",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"event-subscription",
+								"{{eventId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/event-subscription/{{id}}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"eventClass\": \"PaymentRequest\",\n  \"webhookUrl\": \"https://api.example.com/endpoint\"\n}"
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/event-subscription/{{eventId}}",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"event-subscription",
+								"{{eventId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/event-subscription",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/event-subscription/{{eventId}}",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"event-subscription",
+								"{{eventId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41f0554e-48d1-4aa4-a57d-127695562b7d",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"paymentRequestId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"customerId\", jsonData.customerId);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{bearerToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountId\": \"7557b2ae-bb09-11e8-9699-0242ac110002\",\n    \"siteId\": \"2778681c-bb09-11e8-9dec-0242ac110002\",\n    \"reference\": \"API Test\",\n    \"amount\": {\n        \"amount\": 120,\n        \"currency\": \"AUD\"\n    },\n    \"recurrence\": {\n        \"startDate\": \"2020-01-01T00:00:00Z\",\n        \"stages\": [\n            {\n                \"amount\": 10,\n                \"frequency\": 1,\n                \"period\": \"Month\",\n                \"duration\": 12,\n                \"description\": \"Payment Test\"\n            }\n        ]\n    },\n    \"metadata\": {\n        \"type\": \"description\",\n        \"data\": {\n            \"description\": \"Metadata Test\"\n        }\n    },\n    \"transactionTypes\": [\n        \"visa\",\n        \"mastercard\",\n        \"btau_credit\",\n        \"amex\"\n    ],\n    \"customer\": {\n        \"firstName\": \"Test\",\n        \"lastName\": \"Customer\",\n        \"email\": \"test@example.com\",\n        \"mobile\": \"+61444444444\",\n\t    \"country\": \"AU\"\n    },\n    \"notify\": {\n    \t\"sms\": false,\n    \t\"email\": false\n    },\n    \"isTest\": true\n}"
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests/{{id}}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests",
+								"{{paymentRequestId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests/{{id}}/leads",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/leads",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests",
+								"{{paymentRequestId}}",
+								"leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests/{{id}}/leads",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test Lead\",\n  \"email\": \"lead@example.com\",\n  \"mobile\": \"+61444444445\",\n  \"country\": \"AU\",\n  \"sendSms\": false,\n  \"sendEmail\": false\n}"
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/leads",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests",
+								"{{paymentRequestId}}",
+								"leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests/{{id}}/metadata",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/metadata",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests",
+								"{{paymentRequestId}}",
+								"metadata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests/{{id}}/agreement/cancel",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"cancelDate\": \"2020-01-15T00:00:00.000Z\"\n}"
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/cancel",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests",
+								"{{paymentRequestId}}",
+								"agreement",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests/{{id}}/agreement/uncancel",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/uncancel",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests",
+								"{{paymentRequestId}}",
+								"agreement",
+								"uncancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests/{{id}}/agreement/halt",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"haltDate\": \"2020-02-01T00:00:00.000Z\",\n  \"haltDays\": 21,\n  \"autoResume\": true\n}"
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/halt",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests",
+								"{{paymentRequestId}}",
+								"agreement",
+								"halt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests/{{id}}/agreement/resume",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/resume",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests",
+								"{{paymentRequestId}}",
+								"agreement",
+								"resume"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/payment-requests/{{id}}/agreement",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{bearerToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recurrence\": {\n        \"startDate\": \"2020-01-01T00:00:00Z\",\n        \"stages\": [\n            {\n                \"amount\": 10,\n                \"frequency\": 1,\n                \"period\": \"Week\",\n                \"duration\": 12,\n                \"description\": \"Payment Test (updated)\"\n            }\n        ]\n    },\n    \"metadata\": {\n\t\t\"type\": \"description\",\n\t    \"data\": {\n\t        \"description\": \"Metadata Test (updated)\"\n\t    }    \n    }\n}\n"
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"payment-requests",
+								"{{paymentRequestId}}",
+								"agreement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/customers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "36998b09-cc04-4898-a7a2-4c2a779a4181",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"customerId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{bearerToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"Customer\",\n    \"email\": \"test@example.com\"\n}"
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/customers",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/customers/{{id}}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearerToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/customers/{{customerId}}",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"customers",
+								"{{customerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1.0/customers/{{id}}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{bearerToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"Customer\",\n    \"email\": \"test@example.com\"\n}"
+						},
+						"url": {
+							"raw": "{{site}}/{{version}}/customers/{{customerId}}",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"{{version}}",
+								"customers",
+								"{{customerId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
