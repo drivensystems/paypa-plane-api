@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9e90c412-5d7f-4e04-867e-be81a875ad26",
+		"_postman_id": "c487766b-1a9c-43aa-bf51-c861811e50a5",
 		"name": "Paypa Plane Public API /v1.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -300,50 +300,17 @@
 					"response": []
 				},
 				{
-					"name": "/v1.0/payment-requests/{{id}}/leads",
+					"name": "/v1.0/payment-requests/{{id}}/notify-customer",
 					"request": {
 						"auth": {
 							"type": "noauth"
 						},
-						"method": "GET",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{bearerToken}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/leads",
-							"host": [
-								"{{apiUrl}}"
-							],
-							"path": [
-								"{{version}}",
-								"payment-requests",
-								"{{paymentRequestId}}",
-								"leads"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/v1.0/payment-requests/{{id}}/leads",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{bearerToken}}",
-								"type": "text"
+								"type": "text",
+								"value": "Bearer {{bearerToken}}"
 							},
 							{
 								"key": "Content-Type",
@@ -354,10 +321,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Test Lead\",\n  \"email\": \"lead@example.com\",\n  \"mobile\": \"+61444444445\",\n  \"country\": \"AU\",\n  \"sendSms\": false,\n  \"sendEmail\": false\n}"
+							"raw": "{\n  \"notify\": {\n\t  \"sms\": false,\n\t  \"email\": false\n  }\n}"
 						},
 						"url": {
-							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/leads",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/notify-customer",
 							"host": [
 								"{{apiUrl}}"
 							],
@@ -365,7 +332,7 @@
 								"{{version}}",
 								"payment-requests",
 								"{{paymentRequestId}}",
-								"leads"
+								"notify-customer"
 							]
 						}
 					},
