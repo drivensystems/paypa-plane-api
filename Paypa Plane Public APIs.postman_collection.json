@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "49761d9e-4050-417d-bd92-927df8243308",
+		"_postman_id": "9e90c412-5d7f-4e04-867e-be81a875ad26",
 		"name": "Paypa Plane Public API /v1.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -18,9 +18,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}",
+							"raw": "{{apiUrl}}/{{version}}",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}"
@@ -48,9 +48,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/event-subscription",
+							"raw": "{{apiUrl}}/{{version}}/event-subscription",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -100,9 +100,9 @@
 							"raw": "{\n  \"eventClass\": \"PaymentRequest\",\n  \"eventAction\": \"*\",\n  \"webhookUrl\": \"https://api.example.com\"\n}"
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/event-subscription",
+							"raw": "{{apiUrl}}/{{version}}/event-subscription",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -131,9 +131,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/event-subscription/{{eventId}}",
+							"raw": "{{apiUrl}}/{{version}}/event-subscription/{{eventId}}",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -169,9 +169,9 @@
 							"raw": "{\n  \"eventClass\": \"PaymentRequest\",\n  \"webhookUrl\": \"https://api.example.com/endpoint\"\n}"
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/event-subscription/{{eventId}}",
+							"raw": "{{apiUrl}}/{{version}}/event-subscription/{{eventId}}",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -201,9 +201,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/event-subscription/{{eventId}}",
+							"raw": "{{apiUrl}}/{{version}}/event-subscription/{{eventId}}",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -252,12 +252,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"accountId\": \"7557b2ae-bb09-11e8-9699-0242ac110002\",\n    \"siteId\": \"2778681c-bb09-11e8-9dec-0242ac110002\",\n    \"reference\": \"API Test\",\n    \"amount\": {\n        \"amount\": 120,\n        \"currency\": \"AUD\"\n    },\n    \"recurrence\": {\n        \"startDate\": \"2020-01-01T00:00:00Z\",\n        \"stages\": [\n            {\n                \"amount\": 10,\n                \"frequency\": 1,\n                \"period\": \"Month\",\n                \"duration\": 12,\n                \"description\": \"Payment Test\"\n            }\n        ]\n    },\n    \"metadata\": {\n        \"type\": \"description\",\n        \"data\": {\n            \"description\": \"Metadata Test\"\n        }\n    },\n    \"transactionTypes\": [\n        \"visa\",\n        \"mastercard\",\n        \"btau_credit\",\n        \"amex\"\n    ],\n    \"customer\": {\n        \"firstName\": \"Test\",\n        \"lastName\": \"Customer\",\n        \"email\": \"test@example.com\",\n        \"mobile\": \"+61444444444\",\n\t    \"country\": \"AU\"\n    },\n    \"notify\": {\n    \t\"sms\": false,\n    \t\"email\": false\n    },\n    \"isTest\": true\n}"
+							"raw": "{\n    \"accountId\": \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\n    \"siteId\": \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\n    \"reference\": \"API Test\",\n    \"amount\": {\n        \"amount\": 120,\n        \"currency\": \"AUD\"\n    },\n    \"recurrence\": {\n        \"startDate\": \"2020-01-01T00:00:00Z\",\n        \"stages\": [\n            {\n                \"amount\": 10,\n                \"frequency\": 1,\n                \"period\": \"Month\",\n                \"duration\": 12,\n                \"description\": \"Payment Test\"\n            }\n        ]\n    },\n    \"metadata\": {\n        \"type\": \"description\",\n        \"data\": {\n            \"description\": \"Metadata Test\"\n        }\n    },\n    \"transactionTypes\": [\n        \"visa\",\n        \"mastercard\",\n        \"btau_credit\",\n        \"amex\"\n    ],\n    \"customer\": {\n        \"firstName\": \"Test\",\n        \"lastName\": \"Customer\",\n        \"email\": \"test@example.com\",\n        \"mobile\": \"+61444444444\",\n\t    \"country\": \"AU\"\n    },\n    \"notify\": {\n    \t\"sms\": false,\n    \t\"email\": false\n    },\n    \"isTest\": true\n}"
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -286,9 +286,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -318,9 +318,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/leads",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/leads",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -357,9 +357,9 @@
 							"raw": "{\n  \"name\": \"Test Lead\",\n  \"email\": \"lead@example.com\",\n  \"mobile\": \"+61444444445\",\n  \"country\": \"AU\",\n  \"sendSms\": false,\n  \"sendEmail\": false\n}"
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/leads",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/leads",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -393,9 +393,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/metadata",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/metadata",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -432,9 +432,9 @@
 							"raw": "{\n\t\"cancelDate\": \"2020-01-15T00:00:00.000Z\"\n}"
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/cancel",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/cancel",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -472,9 +472,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/uncancel",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/uncancel",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -512,9 +512,9 @@
 							"raw": "{\n  \"haltDate\": \"2020-02-01T00:00:00.000Z\",\n  \"haltDays\": 21,\n  \"autoResume\": true\n}"
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/halt",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/halt",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -552,9 +552,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/resume",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement/resume",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -592,9 +592,9 @@
 							"raw": "{\n    \"recurrence\": {\n        \"startDate\": \"2020-01-01T00:00:00Z\",\n        \"stages\": [\n            {\n                \"amount\": 10,\n                \"frequency\": 1,\n                \"period\": \"Week\",\n                \"duration\": 12,\n                \"description\": \"Payment Test (updated)\"\n            }\n        ]\n    },\n    \"metadata\": {\n\t\t\"type\": \"description\",\n\t    \"data\": {\n\t        \"description\": \"Metadata Test (updated)\"\n\t    }    \n    }\n}\n"
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement",
+							"raw": "{{apiUrl}}/{{version}}/payment-requests/{{paymentRequestId}}/agreement",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -646,9 +646,9 @@
 							"raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"Customer\",\n    \"email\": \"test@example.com\"\n}"
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/customers",
+							"raw": "{{apiUrl}}/{{version}}/customers",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -677,9 +677,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/customers/{{customerId}}",
+							"raw": "{{apiUrl}}/{{version}}/customers/{{customerId}}",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
@@ -715,9 +715,9 @@
 							"raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"Customer\",\n    \"email\": \"test@example.com\"\n}"
 						},
 						"url": {
-							"raw": "{{site}}/{{version}}/customers/{{customerId}}",
+							"raw": "{{apiUrl}}/{{version}}/customers/{{customerId}}",
 							"host": [
-								"{{site}}"
+								"{{apiUrl}}"
 							],
 							"path": [
 								"{{version}}",
